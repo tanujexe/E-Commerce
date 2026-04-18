@@ -30,9 +30,11 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
+        // display: ['Syne', 'sans-serif'],
         body: ['DM Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'sans-serif'],      
+        display: ['Sora', 'sans-serif']
       },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-in-out',
