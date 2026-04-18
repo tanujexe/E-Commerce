@@ -65,7 +65,7 @@ export default function Navbar() {
               <span className="text-white font-display font-bold text-sm">S</span>
             </div>
             <span className="font-display font-bold text-xl text-dark-900">
-              Shop<span className="text-primary-500">Verse</span>
+              Apna<span className="text-primary-500">Store</span>
             </span>
           </Link>
 
