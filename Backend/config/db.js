@@ -1,7 +1,3 @@
-/**
- * MongoDB Connection via Mongoose
- */
-
 import mongoose from 'mongoose';
 
 const connectDB = async () => {
