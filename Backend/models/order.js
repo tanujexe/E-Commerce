@@ -1,8 +1,3 @@
-/**
- * Order Model
- * Tracks order items, shipping, payment, and status lifecycle
- */
-
 import mongoose from 'mongoose';
 
 const orderItemSchema = new mongoose.Schema({

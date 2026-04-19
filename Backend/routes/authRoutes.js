@@ -1,6 +1,3 @@
-/**
- * Auth Routes
- */
 import express from 'express';
 import { register, login, getMe, updateProfile, registerValidation, loginValidation } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';

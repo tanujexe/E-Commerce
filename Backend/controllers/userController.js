@@ -1,7 +1,3 @@
-/**
- * User Controller
- * Admin: list, get, update, delete users
- */
 
 import asyncHandler from 'express-async-handler';
 import User from '../models/User.js';

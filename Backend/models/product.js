@@ -1,8 +1,3 @@
-/**
- * Product Model
- * Includes product details, variants, reviews, and stock management
- */
-
 import mongoose from 'mongoose';
 
 const reviewSchema = new mongoose.Schema(

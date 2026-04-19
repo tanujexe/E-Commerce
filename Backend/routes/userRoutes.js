@@ -1,6 +1,3 @@
-/**
- * User Routes - Admin Only
- */
 import express from 'express';
 import {
   getUsers, getUserById, updateUser, deleteUser, getUserStats,

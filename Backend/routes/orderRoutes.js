@@ -1,6 +1,3 @@
-/**
- * Order Routes
- */
 import express from 'express';
 import {
   createOrder, getMyOrders, getOrderById,

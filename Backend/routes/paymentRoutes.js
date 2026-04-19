@@ -1,6 +1,3 @@
-/**
- * Payment Routes
- */
 import express from 'express';
 import {
   createStripeIntent,

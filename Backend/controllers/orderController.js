@@ -1,7 +1,4 @@
-/**
- * Order Controller
- * Create, retrieve, update orders. Admin order management.
- */
+
 
 import asyncHandler from 'express-async-handler';
 import Order from '../models/Order.js';

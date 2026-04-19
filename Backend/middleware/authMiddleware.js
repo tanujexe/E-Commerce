@@ -1,7 +1,4 @@
-/**
- * Auth Middleware
- * Protects routes using JWT verification and role-based access control
- */
+
 
 import jwt from 'jsonwebtoken';
 import asyncHandler from 'express-async-handler';

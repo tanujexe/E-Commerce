@@ -1,7 +1,4 @@
-/**
- * Upload Middleware
- * Handles local disk uploads via Multer and optional Cloudinary upload
- */
+
 
 import multer from 'multer';
 import path from 'path';

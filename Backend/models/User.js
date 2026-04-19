@@ -1,8 +1,3 @@
-/**
- * User Model
- * Handles user schema, password hashing, and JWT token generation
- */
-
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';

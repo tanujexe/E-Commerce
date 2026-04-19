@@ -1,9 +1,3 @@
-/**
- * Database Seeder
- * Populates MongoDB with sample admin user and products
- * Usage: npm run seed
- */
-
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';

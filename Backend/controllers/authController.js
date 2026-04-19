@@ -1,7 +1,4 @@
-/**
- * Auth Controller
- * Handles user registration, login, logout, and profile management
- */
+
 
 import asyncHandler from 'express-async-handler';
 import { body, validationResult } from 'express-validator';

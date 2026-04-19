@@ -1,7 +1,4 @@
-/**
- * Payment Controller
- * Stripe and Razorpay integration (test mode)
- */
+
 
 import asyncHandler from 'express-async-handler';
 import Stripe from 'stripe';

@@ -1,6 +1,3 @@
-/**
- * Product Routes
- */
 import express from 'express';
 import {
   getProducts, getProductById, createProduct, updateProduct,

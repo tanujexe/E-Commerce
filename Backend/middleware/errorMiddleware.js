@@ -1,7 +1,3 @@
-/**
- * Error Handling Middleware
- * Centralised 404 and error response formatting
- */
 
 // 404 - Route Not Found
 export const notFound = (req, res, next) => {
