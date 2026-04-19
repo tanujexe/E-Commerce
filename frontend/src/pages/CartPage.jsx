@@ -1,6 +1,3 @@
-/**
- * CartPage — cart items, qty controls, order summary, checkout CTA
- */
 
 import { Link } from 'react-router-dom';
 import { FiTrash2, FiPlus, FiMinus, FiArrowRight, FiShoppingBag } from 'react-icons/fi';

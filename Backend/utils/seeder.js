@@ -97,7 +97,7 @@ const sampleProducts = (adminId) => [
     rating: 4.6,
     numReviews: 128,
     isFeatured: false,
-    images: [{ public_id: 'samsung_tv', url: 'https://plus.unsplash.com/premium_photo-1669380425564-6e1a281a4d30?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }],
+    images: [{ public_id: 'samsung_tv', url: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`' }],
     createdBy: adminId,
     tags: ['samsung', 'tv', '4k', 'smart-tv'],
   },
