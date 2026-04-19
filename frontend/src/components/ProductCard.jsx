@@ -83,7 +83,7 @@ export default function ProductCard({ product }) {
               ${displayPrice.toFixed(2)}
             </span>
             {hasDiscount && (
-              <span className="text-xs text-dark-400 line-through">
+              <span className="text-xs text-dark-600 font-semibold line-through">
                 ${product.price.toFixed(2)}
               </span>
             )}
