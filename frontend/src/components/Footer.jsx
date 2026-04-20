@@ -3,7 +3,7 @@
  */
 
 import { Link } from 'react-router-dom';
-import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiInstagram,FiShoppingCart } from 'react-icons/fi';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2 mb-3">
               <div className="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
-                <span className="text-white font-display font-bold text-sm">S</span>
+                <span className="text-white font-display font-bold text-sm"><FiShoppingCart /></span>
               </div>
               <span className="font-display font-bold text-xl text-white">
                 Apna<span className="text-primary-400">Store</span>
@@ -56,7 +56,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="border-t border-dark-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-xs m-auto text-dark-500">© {year} ShopVerse. All rights reserved.</p>
+          <p className="text-xs m-auto text-dark-500">© {year} ApnaStore. All rights reserved.</p>
         </div>
       </div>
     </footer>

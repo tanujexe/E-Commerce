@@ -55,8 +55,8 @@ export default function RegisterPage() {
   };
 
   const fields = [
-    { key: 'name',     label: 'Full Name',       type: 'text',     icon: FiUser,  placeholder: 'John Doe',           auto: 'name'     },
-    { key: 'email',    label: 'Email Address',   type: 'email',    icon: FiMail,  placeholder: 'you@example.com',    auto: 'email'    },
+    { key: 'name',     label: 'Full Name',       type: 'text',     icon: FiUser,  placeholder: 'UserName',           auto: 'name'     },
+    { key: 'email',    label: 'Email Address',   type: 'email',    icon: FiMail,  placeholder: 'user@example.com',    auto: 'email'    },
     { key: 'password', label: 'Password',        type: 'password', icon: FiLock,  placeholder: 'Min. 6 characters',  auto: 'new-password' },
     { key: 'confirm',  label: 'Confirm Password',type: 'password', icon: FiLock,  placeholder: 'Repeat your password', auto: 'new-password' },
   ];

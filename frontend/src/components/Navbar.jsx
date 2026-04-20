@@ -1,12 +1,10 @@
-/**
- * Navbar — responsive top navigation with cart badge, auth links, mobile menu
- */
+
 
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
   FiShoppingCart, FiUser, FiMenu, FiX, FiChevronDown,
-  FiPackage, FiSettings, FiLogOut, FiGrid,
+  FiPackage, FiSettings, FiLogOut, FiGrid
 } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
@@ -62,7 +60,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <div className="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
-              <span className="text-white font-display font-bold text-sm"></span>
+              <span className="text-white font-display font-bold text-sm"><FiShoppingCart /></span>
             </div>
             <span className="font-display font-bold text-xl text-dark-900">
               Apna<span className="text-primary-500">Store</span>
