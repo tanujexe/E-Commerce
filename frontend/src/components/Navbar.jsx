@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <div className="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center">
-              <span className="text-white font-display font-bold text-sm">S</span>
+              <span className="text-white font-display font-bold text-sm"></span>
             </div>
             <span className="font-display font-bold text-xl text-dark-900">
               Apna<span className="text-primary-500">Store</span>
