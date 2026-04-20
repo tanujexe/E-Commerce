@@ -15,7 +15,9 @@ const orderSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
+
     orderItems: [orderItemSchema],
+
     shippingAddress: {
       fullName: { type: String, required: true },
       street: { type: String, required: true },
@@ -25,30 +27,21 @@ const orderSchema = new mongoose.Schema(
       zipCode: { type: String, required: true },
       phone: { type: String, required: true },
     },
-    paymentMethod: {
-      type: String,
-      required: true,
-      enum: ['stripe', 'razorpay', 'cod'],
-    },
-    paymentResult: {
-      id: String,
-      status: String,
-      updateTime: String,
-      emailAddress: String,
-    },
+
     itemsPrice: { type: Number, required: true, default: 0 },
     taxPrice: { type: Number, required: true, default: 0 },
     shippingPrice: { type: Number, required: true, default: 0 },
     totalPrice: { type: Number, required: true, default: 0 },
+
     orderStatus: {
       type: String,
       enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
       default: 'pending',
     },
-    isPaid: { type: Boolean, default: false },
-    paidAt: Date,
+
     isDelivered: { type: Boolean, default: false },
     deliveredAt: Date,
+
     trackingNumber: { type: String, default: '' },
     notes: { type: String, default: '' },
   },
