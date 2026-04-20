@@ -34,7 +34,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const verifyToken = async () => {
-      if (!token) { setLoading(false); return; }
+      if (!token) {
+        setLoading(false);
+        return;
+      }
       try {
         const { data } = await authAPI.getMe();
         setUser(data.user);
@@ -45,37 +48,35 @@ export const AuthProvider = ({ children }) => {
       }
     };
     verifyToken();
-  }, []);
+  }, [token, clearAuth]);
 
-  // 🔥 FIXED register
   const register = async (formData) => {
-    try {
-      const { data } = await authAPI.register(formData);
-      persist(data.user, data.token);
-      return data;
-    } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Signup failed"
-      );
-    }
+    const { data } = await authAPI.register(formData);
+    persist(data.user, data.token);
+    return data;
   };
 
   const login = async (formData) => {
-    try {
-      const { data } = await authAPI.login(formData);
-      persist(data.user, data.token);
-      return data;
-    } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Login failed"
-      );
-    }
+    const { data } = await authAPI.login(formData);
+    persist(data.user, data.token);
+    return data;
   };
 
   const logout = () => clearAuth();
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, register, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        token,
+        loading,
+        isLoggedIn: !!user,                 // ✅ FIX
+        isAdmin: user?.role === "admin",    // ✅ FIX
+        register,
+        login,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
