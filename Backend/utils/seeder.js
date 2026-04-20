@@ -17,14 +17,14 @@ const users = [
     role: 'admin',
   },
   {
-    name: 'John Doe',
-    email: 'john@example.com',
+    name: 'Amit',
+    email: 'amit@example.com',
     password: 'password123',
     role: 'user',
   },
   {
-    name: 'Jane Smith',
-    email: 'jane@example.com',
+    name: 'James',
+    email: 'janmes@example.com',
     password: 'password123',
     role: 'user',
   },
