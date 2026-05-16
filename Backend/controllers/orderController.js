@@ -1,7 +1,7 @@
 
 import asyncHandler from 'express-async-handler';
-import Order from '../models/Order.js';
-import Product from '../models/Product.js';
+import Order from '../models/order.js';
+import Product from '../models/product.js';
 
 // ─── @POST /api/orders ────────────────────────────────────────────────────────
 export const createOrder = asyncHandler(async (req, res) => {

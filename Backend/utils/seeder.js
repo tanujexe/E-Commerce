@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import connectDB from '../config/db.js';
 import User from '../models/User.js';
-import Product from '../models/Product.js';
-import Order from '../models/Order.js';
+import Product from '../models/product.js';
+import Order from '../models/order.js';
 
 dotenv.config();
 await connectDB();

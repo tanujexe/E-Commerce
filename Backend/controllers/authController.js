@@ -1,18 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import { body, validationResult } from 'express-validator';
 import User from '../models/User.js';
-
-// ─── Validation Rules ─────────────────────────────────────────────────────────
-export const registerValidation = [
-  body('name').trim().notEmpty().withMessage('Name is required').isLength({ max: 50 }),
-  body('email').isEmail().withMessage('Enter a valid email').normalizeEmail(),
-  body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
-];
-
-export const loginValidation = [
-  body('email').isEmail().withMessage('Enter a valid email').normalizeEmail(),
-  body('password').notEmpty().withMessage('Password is required'),
-];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const sendTokenResponse = (user, statusCode, res) => {
@@ -34,13 +21,25 @@ const sendTokenResponse = (user, statusCode, res) => {
 
 // ─── @POST /api/auth/register ─────────────────────────────────────────────────
 export const register = asyncHandler(async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    res.status(400);
-    throw new Error(errors.array().map((e) => e.msg).join(', '));
-  }
+  console.log('REGISTER HIT', req.method, req.originalUrl);
+  console.log('BODY', req.body);
 
   const { name, email, password } = req.body;
+
+  if (!name?.trim()) {
+    res.status(400);
+    throw new Error('Name is required');
+  }
+
+  if (!email?.trim() || !/\S+@\S+\.\S+/.test(email)) {
+    res.status(400);
+    throw new Error('Enter a valid email');
+  }
+
+  if (!password || password.length < 6) {
+    res.status(400);
+    throw new Error('Password must be at least 6 characters');
+  }
 
   const userExists = await User.findOne({ email });
   if (userExists) {
@@ -48,19 +47,30 @@ export const register = asyncHandler(async (req, res) => {
     throw new Error('An account with this email already exists');
   }
 
-  const user = await User.create({ name, email, password });
-  sendTokenResponse(user, 201, res);
+  try {
+    console.log('CREATING USER', { name, email });
+    const user = await User.create({ name, email, password });
+    console.log('USER CREATED', user._id);
+    sendTokenResponse(user, 201, res);
+  } catch (err) {
+    console.error('USER CREATE ERROR', err);
+    throw err;
+  }
 });
 
 // ─── @POST /api/auth/login ────────────────────────────────────────────────────
 export const login = asyncHandler(async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
+  const { email, password } = req.body;
+
+  if (!email?.trim() || !/\S+@\S+\.\S+/.test(email)) {
     res.status(400);
-    throw new Error(errors.array().map((e) => e.msg).join(', '));
+    throw new Error('Enter a valid email');
   }
 
-  const { email, password } = req.body;
+  if (!password) {
+    res.status(400);
+    throw new Error('Password is required');
+  }
 
   const user = await User.findOne({ email }).select('+password');
   if (!user || !(await user.matchPassword(password))) {

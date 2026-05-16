@@ -105,5 +105,5 @@ productSchema.methods.updateRating = function () {
 // Text search index
 productSchema.index({ name: 'text', description: 'text', brand: 'text' });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 export default Product;

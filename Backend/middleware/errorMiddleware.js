@@ -32,6 +32,9 @@ export const errorHandler = (err, req, res, next) => {
       .join(', ');
   }
 
+  console.error('ERROR HANDLER:', err);
+  console.error(err.stack);
+
   // JWT errors
   if (err.name === 'JsonWebTokenError') {
     statusCode = 401;

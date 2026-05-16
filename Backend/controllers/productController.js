@@ -1,7 +1,7 @@
 
 
 import asyncHandler from 'express-async-handler';
-import Product from '../models/Product.js';
+import Product from '../models/product.js';
 import { uploadToCloudinary, deleteFromCloudinary } from '../middleware/uploadMiddleware.js';
 
 // ─── @GET /api/products ───────────────────────────────────────────────────────
