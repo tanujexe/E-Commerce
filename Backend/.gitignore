@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Environment files
+*.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Vite / React build output
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code workspace settings
+.vscode/
+
+# Parcel cache
+.cache/
+
+# Optional npm cache
+.npm/
+
+# Back-end specific
+Backend/uploads/
+Backend/.env
+Backend/node_modules/
+
+# Front-end specific
+frontend/node_modules/
+frontend/dist/

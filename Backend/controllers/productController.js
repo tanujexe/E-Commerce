@@ -18,7 +18,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     query.$text = { $search: req.query.search };
   }
 
-  // Category filter
+  // Category filterjhgjhgjhhj
   if (req.query.category) query.category = req.query.category;
 
   // Brand filter
