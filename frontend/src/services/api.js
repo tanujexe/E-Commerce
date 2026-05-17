@@ -4,11 +4,15 @@
 
 import axios from "axios";
 
-// 🔥 FIX: direct backend URL use karo
+// 🔥 Use environment variable for production and fallback to localhost for dev
+const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const normalizedApiUrl = rawApiUrl.replace(/\/$/, '');
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: `${normalizedApiUrl}/api`,
   timeout: 15000,
-  headers: { "Content-Type": "application/json" },
+  headers: { 'Content-Type': 'application/json' },
+  // no cookies by default; set to true only if you use cookie-based auth
+  withCredentials: false,
 });
 
 // ─── Request Interceptor ─────────────────────────────────────────

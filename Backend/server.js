@@ -31,12 +31,34 @@ const __dirname = path.dirname(__filename);
 
 // ─── 🔥 MIDDLEWARE (IMPORTANT ORDER) ─────────────────────────────────────────
 
-// ✅ Allow frontend connection
+// ✅ Allow frontend connection - support multiple origins and localhost for dev
+const rawClientUrls = process.env.CLIENT_URLS || process.env.CLIENT_URL || '';
+const ALLOWED_ORIGINS = rawClientUrls
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
 
-app.use(cors({
-  origin: "https://e-commerce-jzgd.vercel.app",
+const corsOptions = {
+  origin: (origin, cb) => {
+    // Allow non-browser requests like curl or server-to-server (no origin)
+    if (!origin) return cb(null, true);
+
+    // Allow if explicitly listed
+    if (ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+
+    // Allow local development origins
+    if (/^https?:\/\/localhost(:\d+)?$/.test(origin) || /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(origin)) {
+      return cb(null, true);
+    }
+
+    return cb(new Error(`Not allowed by CORS: ${origin}`));
+  },
   credentials: true,
-}));
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // ✅ Parse JSON (VERY IMPORTANT)
 app.use(express.json());
