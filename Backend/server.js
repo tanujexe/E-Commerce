@@ -32,9 +32,9 @@ const __dirname = path.dirname(__filename);
 // ─── 🔥 MIDDLEWARE (IMPORTANT ORDER) ─────────────────────────────────────────
 
 // ✅ Allow frontend connection
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+
 app.use(cors({
-  origin: CLIENT_URL,
+  origin: "https://e-commerce-jzgd.vercel.app",
   credentials: true,
 }));
 
