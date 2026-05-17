@@ -60,6 +60,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
+// Log allowed origins on startup (non-secret) to help verify Render/Vercel env
+const allowedPreview = ALLOWED_ORIGINS.length ? ALLOWED_ORIGINS.join(',') : '(none - allowing only localhost/127.0.0.1 and non-browser requests)';
+console.log('CORS allowed origins (from env):', allowedPreview);
+console.log('CLIENT_URL env:', process.env.CLIENT_URL || '(unset)');
+console.log('CLIENT_URLS env:', process.env.CLIENT_URLS || '(unset)');
+
 // ✅ Parse JSON (VERY IMPORTANT)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
